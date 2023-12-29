@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
-import { Button } from "@/registry/default/ui/button"
+import { Button } from "@/registry/default/ui/button";
+import { Input } from "@/registry/default/ui/input";
 import {
   Card,
   CardContent,
@@ -8,43 +9,62 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/default/ui/card"
-import { Label } from "@/registry/default/ui/label"
-import { Switch } from "@/registry/default/ui/switch"
+} from "@/registry/default/ui/card";
+import { Send } from "lucide-react";
+import { Label } from "@/registry/default/ui/label";
+import { Switch } from "@/registry/default/ui/switch";
 
 export function CardsCookieSettings() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Cookie Settings</CardTitle>
-        <CardDescription>Manage your cookie settings here.</CardDescription>
+        <CardTitle>RPC List</CardTitle>
+        <CardDescription>Manage your rpc settings here.</CardDescription>
       </CardHeader>
+
       <CardContent className="grid gap-6">
         <div className="flex items-center justify-between space-x-4">
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              event.currentTarget.message.value = "";
+            }}
+            className="flex items-center w-full space-x-2"
+          >
+            <Input
+              id="message"
+              placeholder="Type your private key..."
+              className="flex-1"
+            />
+            <Button type="submit" size="icon">
+              <Send className="w-4 h-4" />
+              <span className="sr-only">Send</span>
+            </Button>
+          </form>
+        </div>
+        <div className="flex items-center justify-between space-x-4">
           <Label htmlFor="necessary" className="flex flex-col space-y-1">
-            <span>Strictly Necessary</span>
+            <span>Quick Node</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
-              These cookies are essential in order to use the website and use
-              its features.
+              https://docs.infura.io/networks/bnb-smart-chain
             </span>
           </Label>
           <Switch id="necessary" defaultChecked aria-label="Necessary" />
         </div>
         <div className="flex items-center justify-between space-x-4">
           <Label htmlFor="functional" className="flex flex-col space-y-1">
-            <span>Functional Cookies</span>
+            <span>Binance</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
-              These cookies allow the website to provide personalized
-              functionality.
+              https://docs.infura.io/networks/bnb-smart-chain
             </span>
           </Label>
           <Switch id="functional" aria-label="Functional" />
         </div>
         <div className="flex items-center justify-between space-x-4">
           <Label htmlFor="performance" className="flex flex-col space-y-1">
-            <span>Performance Cookies</span>
+            <span>Infura</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
-              These cookies help to improve the performance of the website.
+              https://docs.infura.io/networks/bnb-smart-chain
             </span>
           </Label>
           <Switch id="performance" aria-label="Performance" />
@@ -52,9 +72,9 @@ export function CardsCookieSettings() {
       </CardContent>
       <CardFooter>
         <Button variant="outline" className="w-full">
-          Save preferences
+          Save
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

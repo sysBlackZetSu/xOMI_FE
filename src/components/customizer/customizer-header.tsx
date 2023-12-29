@@ -22,7 +22,7 @@ const CustomizerHeader: React.FC = () => {
           Customize
         </div>
         <div className="text-xs text-muted-foreground">
-          Pick a style and color for your components.
+          Pick a setting and value for your.
         </div>
       </div>
       <Button

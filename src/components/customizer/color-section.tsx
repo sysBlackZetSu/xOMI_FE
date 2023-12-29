@@ -20,7 +20,7 @@ const ColorSection: React.FC = () => {
   return (
     <div className="space-y-1.5">
       <Label className="text-xs">Color</Label>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {themes.map((theme) => {
           const isActive = config.theme === theme.name;
 
