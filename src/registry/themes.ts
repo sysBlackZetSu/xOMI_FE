@@ -1,7 +1,7 @@
 export const themes = [
   {
     name: "zinc",
-    label: "Zinc",
+    label: "BCS Chain",
     activeColor: {
       light: "240 5.9% 10%",
       dark: "240 5.2% 33.9%",
@@ -54,7 +54,7 @@ export const themes = [
   },
   {
     name: "slate",
-    label: "Slate",
+    label: "Arbitrum",
     activeColor: {
       light: "215.4 16.3% 46.9%",
       dark: "215.3 19.3% 34.5%",
@@ -107,7 +107,7 @@ export const themes = [
   },
   {
     name: "stone",
-    label: "Stone",
+    label: "Solana",
     activeColor: {
       light: "25 5.3% 44.7%",
       dark: "33.3 5.5% 32.4%",
@@ -160,7 +160,7 @@ export const themes = [
   },
   {
     name: "green",
-    label: "Green",
+    label: "Optimism",
     activeColor: {
       light: "142.1 76.2% 36.3%",
       dark: "142.1 70.6% 45.3%",
@@ -212,7 +212,7 @@ export const themes = [
   },
   {
     name: "blue",
-    label: "Blue",
+    label: "Ethereum",
     activeColor: {
       light: "221.2 83.2% 53.3%",
       dark: "217.2 91.2% 59.8%",
@@ -264,7 +264,7 @@ export const themes = [
   },
   {
     name: "yellow",
-    label: "Yellow",
+    label: "Polygon",
     activeColor: {
       light: "47.9 95.8% 53.1%",
       dark: "47.9 95.8% 53.1%",
@@ -317,7 +317,7 @@ export const themes = [
   },
   {
     name: "violet",
-    label: "Violet",
+    label: "zkSync Era",
     activeColor: {
       light: "262.1 83.3% 57.8%",
       dark: "263.4 70% 50.4%",

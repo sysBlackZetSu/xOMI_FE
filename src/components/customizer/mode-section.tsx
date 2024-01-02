@@ -10,6 +10,24 @@ import { cn } from "@/lib/utils";
 const ModeSection: React.FC = () => {
   const { setTheme: setMode, resolvedTheme: mode } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const [time, setTime] = React.useState(new Date());
+  
+  React.useEffect(() => {
+    // Update the time every second
+    const intervalId = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => {
+      // Cleanup the interval on component unmount
+      clearInterval(intervalId);
+    };
+  }, []);
+
+    // Get hours and minutes in 24-hour format
+    const hours = time.getHours().toString().padStart(2, '0');
+    const minutes = time.getMinutes().toString().padStart(2, '0');
+    const seconds = time.getSeconds().toString().padStart(2, '0');
 
   React.useEffect(() => {
     setMounted(true);
@@ -37,6 +55,15 @@ const ModeSection: React.FC = () => {
             >
               <MoonIcon className="mr-1 -translate-x-1" />
               Dark
+            </Button>
+            <Button
+              variant={"outline"}
+              size="sm"
+              onClick={() => {}}
+              className={cn(mode === "dark" ? "border-2 bg-purple-950" : "border-2 bg-sky-500")}
+            >
+              <MoonIcon className="mr-1 -translate-x-1" />
+              {`${hours}:${minutes}:${seconds}`}
             </Button>
           </>
         ) : (

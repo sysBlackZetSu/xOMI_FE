@@ -16,7 +16,7 @@ export function ThemesTabs() {
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div className="lg:space-y-8 sm:space-y-12">
       {!mounted ? (
         <div className="grid md:grids-col-2 md:gap-4 lg:grid-cols-10 xl:gap-6">
           <div className="space-y-4 lg:col-span-4 xl:col-span-6 xl:space-y-6">

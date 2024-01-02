@@ -12,7 +12,7 @@ import { ThemesTabs } from "@/components/tabs";
 
 export const metadata: Metadata = {
   title: "Themes",
-  description: "Hand-picked themes that you can copy and paste into your apps.",
+  description: "Chỉ có cho đi ta mới có thể nhận lại được những gì ta có.",
 };
 
 export default function ThemesPage() {
@@ -25,14 +25,14 @@ export default function ThemesPage() {
         <PageHeader className="relative pb-4 md:pb-8 lg:pb-12">
           <PageHeaderHeading>Make it yours.</PageHeaderHeading>
           <PageHeaderDescription>
-            Hand-picked themes that you can copy and paste into your apps.
+          Chỉ có cho đi ta mới có thể nhận lại được những gì ta có.
           </PageHeaderDescription>
         </PageHeader>
         <div className="px-4 pb-8 md:ml-auto md:pb-0">
           <ThemeCustomizer />
         </div>
       </ThemeWrapper>
-      <div className="relative flex gap-4 ">
+      <div className="relative flex gap-4 md:w-[calc(100%_-_20rem)] sm:w-full">
         <ThemesTabs />
         <Customizer className="hidden md:flex" />
       </div>

@@ -22,13 +22,13 @@ const CustomizerHeader: React.FC = () => {
           Customize
         </div>
         <div className="text-xs text-muted-foreground">
-          Pick a setting and value for your.
+          Exchange Token
         </div>
       </div>
       <Button
         variant="ghost"
         size="icon"
-        className="ml-auto rounded-[0.5rem]"
+        className="ml-auto rounded-[0.5rem] border-2"
         onClick={resetConfig}
       >
         <ResetIcon />

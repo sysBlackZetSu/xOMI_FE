@@ -28,7 +28,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import CustomizerHeader from "./customizer/customizer-header";
-import ColorSection from "./customizer/color-section";
+import ChainsSection from "./customizer/chains-section";
 import ModeSection from "./customizer/mode-section";
 
 export function ThemeCustomizer() {
@@ -156,7 +156,7 @@ export function Customizer({ className }: { className?: string }) {
       <div className="flex flex-col flex-1 space-y-4 md:space-y-6">
         <ModeSection />
         <CardsCalendar />
-        <ColorSection />
+        <ChainsSection />
       </div>
     </ThemeWrapper>
   );
