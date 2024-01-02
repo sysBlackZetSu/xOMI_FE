@@ -13,21 +13,20 @@ import { Input } from "@/registry/default/ui/input";
 import { Label } from "@/registry/default/ui/label";
 import HttpClient from "@/lib/fetch";
 
-import { Alert, AlertTitle, AlertDescription } from "@/registry/default/ui/alert";
 const httpClient = new HttpClient();
 
 export function CardsMintNFT() {
-  const [gasLimit, setGasLimit] = React.useState("");
-  const [gasWei, setGasWei] = React.useState("");
+  const [gasLimitMint, setMaxGasLimit] = React.useState("");
+  const [gasPriceMint, setGasPriceMint] = React.useState("");
   const [numberMint, setNumberMint] = React.useState("");
 
   React.useEffect(() => {
     const initMintSettings = async () => {
       const data = await httpClient.request("/mint_settings", "GET");
       if (data && data.mint_response) {
-        const { gasLimit, gasWei, numberMint } = data.mint_response;
-        setGasLimit(gasLimit);
-        setGasWei(gasWei);
+        const { gasLimitMint, gasPriceMint, numberMint } = data.mint_response;
+        setMaxGasLimit(gasLimitMint);
+        setGasPriceMint(gasPriceMint);
         setNumberMint(numberMint);
       }
     };
@@ -38,14 +37,14 @@ export function CardsMintNFT() {
     try {
       const data = await httpClient.request("/mint_settings", "POST",
         {
-          gasLimit,
-          gasWei,
+          gasLimitMint,
+          gasPriceMint,
           numberMint,
         });
       if (data && data.mint_response) {
-        const { gasLimit, gasWei, numberMint } = data.mint_response;
-        setGasLimit(gasLimit);
-        setGasWei(gasWei);
+        const { gasLimitMint, gasPriceMint, numberMint } = data.mint_response;
+        setMaxGasLimit(gasLimitMint);
+        setGasPriceMint(gasPriceMint);
         setNumberMint(numberMint);
       }
     } catch (error) {
@@ -66,18 +65,18 @@ export function CardsMintNFT() {
               id="gasLimit"
               type="number"
               placeholder="1000000"
-              value={gasLimit}
-              onChange={(e) => setGasLimit(e.target.value)}
+              value={gasLimitMint}
+              onChange={(e) => setMaxGasLimit(e.target.value)}
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="gasWei">Gas Wei</Label>
+            <Label htmlFor="gasPriceMint">Gas Wei</Label>
             <Input
-              id="gasWei"
+              id="gasPriceMint"
               type="number"
               placeholder="1000000"
-              value={gasWei}
-              onChange={(e) => setGasWei(e.target.value)}
+              value={gasPriceMint}
+              onChange={(e) => setGasPriceMint(e.target.value)}
             />
           </div>
         </div>

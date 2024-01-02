@@ -161,4 +161,3 @@ export function Customizer({ className }: { className?: string }) {
     </ThemeWrapper>
   );
 }
-

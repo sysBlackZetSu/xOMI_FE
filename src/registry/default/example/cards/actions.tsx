@@ -24,7 +24,7 @@ export function CardsActions() {
 
       try {
         const data = await httpClient.request("/action", "POST", { method: action });
-        if (data && data.statusText === 'OK' && data.response) {
+        if (data && data.response) {
           // Xử lý thành công nếu cần
         }
         setClickedAction(null);

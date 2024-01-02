@@ -18,8 +18,8 @@ const httpClient = new HttpClient();
 
 export function CardsSwapToken() {
   const [isShow, setIsShow] = React.useState(true);
-  const [gasLimit, setGasLimit] = React.useState("0");
-  const [gasWei, setGasWei] = React.useState("0");
+  const [gasLimitSwap, setMaxGasLimit] = React.useState("0");
+  const [gasPriceSwap, setGasPriceSwap] = React.useState("0");
   const [amountSell, setAmountSell] = React.useState("0");
   const [feeEstimate, setFeeEstimate] = React.useState("0");
   const [quantity, setQuantity] = React.useState("0");
@@ -36,8 +36,8 @@ export function CardsSwapToken() {
       const data = await httpClient.request("/swap_settings", "GET");
       if (data && data.swap_response) {
         const {
-          gasLimit,
-          gasWei,
+          gasLimitSwap,
+          gasPriceSwap,
           amountSell,
           feeEstimate,
           quantity,
@@ -45,8 +45,8 @@ export function CardsSwapToken() {
           totalBnb,
           totalUsdt
         } = data.swap_response;
-        setGasLimit(gasLimit);
-        setGasWei(gasWei);
+        setMaxGasLimit(gasLimitSwap);
+        setGasPriceSwap(gasPriceSwap);
         setAmountSell(amountSell);
         setFeeEstimate(feeEstimate);
         setQuantity(quantity);
@@ -62,14 +62,14 @@ export function CardsSwapToken() {
     try {
       const data = await httpClient.request("/swap_settings", "POST",
         {
-          gasLimit,
-          gasWei,
+          gasLimitSwap,
+          gasPriceSwap,
           amountSell
         });
       if (data && data.swap_response) {
         const {
-          gasLimit,
-          gasWei,
+          gasLimitSwap,
+          gasPriceSwap,
           amountSell,
           feeEstimate,
           quantity,
@@ -77,8 +77,8 @@ export function CardsSwapToken() {
           totalBnb,
           totalUsdt
         } = data.swap_response;
-        setGasLimit(gasLimit);
-        setGasWei(gasWei);
+        setMaxGasLimit(gasLimitSwap);
+        setGasPriceSwap(gasPriceSwap);
         setAmountSell(amountSell);
         setFeeEstimate(feeEstimate);
         setQuantity(quantity);
@@ -113,18 +113,18 @@ export function CardsSwapToken() {
                 id="gasLimit"
                 type="number"
                 placeholder="1000000"
-                value={gasLimit}
-                onChange={(e) => setGasLimit(e.target.value)}
+                value={gasLimitSwap}
+                onChange={(e) => setMaxGasLimit(e.target.value)}
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="gasWei">Gas Wei</Label>
+              <Label htmlFor="gasPriceSwap">Gas Wei</Label>
               <Input
-                id="gasWei"
+                id="gasPriceSwap"
                 type="number"
                 placeholder="1000000"
-                value={gasWei}
-                onChange={(e) => setGasWei(e.target.value)}
+                value={gasPriceSwap}
+                onChange={(e) => setGasPriceSwap(e.target.value)}
               />
             </div>
           </div>

@@ -2,17 +2,26 @@ import { ResetIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
 import { useConfig } from "@/hooks/use-config";
 import { CssVars, themes } from "@/registry/themes";
+import HttpClient from "@/lib/fetch";
+
+const httpClient = new HttpClient();
 
 const CustomizerHeader: React.FC = () => {
   const [, setConfig] = useConfig();
 
-  const resetConfig = () => {
-    setConfig({
-      theme: "zinc",
-      style: "default",
-      cssVars: themes.find((theme) => theme.name === "zinc")
-        ?.cssVars as CssVars,
+  const resetConfig = async () => {
+    const data = await httpClient.request("/reset", "POST", {
+      reset: true,
     });
+    if (data && data.reset) {
+      setConfig({
+        theme: "zinc",
+        style: "default",
+        cssVars: themes.find((theme) => theme.name === "zinc")
+          ?.cssVars as CssVars,
+      });
+      window.location.reload();
+    }
   };
 
   return (
@@ -21,9 +30,7 @@ const CustomizerHeader: React.FC = () => {
         <div className="font-semibold leading-none tracking-tight">
           Customize
         </div>
-        <div className="text-xs text-muted-foreground">
-          Exchange Token
-        </div>
+        <div className="text-xs text-muted-foreground">Reset Config</div>
       </div>
       <Button
         variant="ghost"
